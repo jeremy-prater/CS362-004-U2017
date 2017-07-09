@@ -39,7 +39,9 @@ int cardEffect_Smithy(int *currentPlayer, struct gameState *state,
                       int *handPos) {
   int i;
   //+3 Cards
-  for (i = 0; i < 3; i++) {
+  //for (i = 0; i < 3; i++) {
+  // Error 2: Only draw two cards
+  for (i = 0; i < 2; i++) {
     drawCard(*currentPlayer, state);
   }
 
@@ -58,6 +60,8 @@ int cardEffect_CouncilRoom(int *currentPlayer, struct gameState *state,
   }
 
   //+1 Buy
+  //state->numBuys++;
+  // Error 3 : Do not increase number of buys
   state->numBuys++;
 
   // Each other player draws a card
@@ -125,7 +129,8 @@ int cardEffect_Feast(int *currentPlayer, struct gameState *state, int *handPos,
   // Reset Hand
   for (i = 0; i <= state->handCount[*currentPlayer]; i++) {
     state->hand[*currentPlayer][i] = temphand[i];
-    temphand[i] = -1;
+    // Error 4 : Don't reset hand.
+    //temphand[i] = -1;
   }
   // Reset Hand
 
