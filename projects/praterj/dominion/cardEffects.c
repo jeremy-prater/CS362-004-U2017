@@ -14,8 +14,9 @@ int cardEffect_Adventurer(int *drawntreasure, struct gameState *state,
     drawCard(*currentPlayer, state);
     *cardDrawn =
         state->hand[*currentPlayer]
-                   [state->handCount[*currentPlayer] -
-                    1]; // top card of hand is most recently drawn card.
+                   // [state->handCount[*currentPlayer] - 1]; // top card of hand is most recently drawn card.
+                   // Error 1 : Remove index offset (-1)
+                   [state->handCount[*currentPlayer]]; // top card of hand is most recently drawn card.
     if (*cardDrawn == copper || *cardDrawn == silver || *cardDrawn == gold)
       drawntreasure++;
     else {
