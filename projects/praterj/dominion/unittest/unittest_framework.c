@@ -7,6 +7,7 @@ int main()
     test_drawCard();
     test_discardCard();
     test_updateCoins();
+    test_gainCard();
 }
 
 int AssertEq (int a, int b, const char * tag)

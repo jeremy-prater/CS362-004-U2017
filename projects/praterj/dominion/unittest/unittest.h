@@ -20,6 +20,7 @@
 void test_drawCard();
 void test_discardCard();
 void test_updateCoins();
+void test_gainCard();
 
 int AssertEq (int a, int b, const char * tag);
 void LogStart(const char * tag);
