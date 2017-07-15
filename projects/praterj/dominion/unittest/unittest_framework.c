@@ -10,6 +10,9 @@ int main()
     test_gainCard();
 
     test_cardSmithy();
+    test_cardAdventurer();
+    test_cardCouncilRoom();
+    test_cardFeast();
 }
 
 int AssertEq (int a, int b, const char * tag)
@@ -25,5 +28,5 @@ int AssertEq (int a, int b, const char * tag)
 
 void LogStart(const char * tag)
 {
-    printf ("[GO--->] %s\n", tag);
+    printf ("\n[GO--->] %s\n", tag);
 }

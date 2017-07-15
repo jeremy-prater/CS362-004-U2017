@@ -14,9 +14,9 @@ int cardEffect_Adventurer(int *drawntreasure, struct gameState *state,
     drawCard(*currentPlayer, state);
     *cardDrawn =
         state->hand[*currentPlayer]
-                   [state->handCount[*currentPlayer] - 1]; // top card of hand is most recently drawn card.
+                   //[state->handCount[*currentPlayer] - 1]; // top card of hand is most recently drawn card.
                    // Error 1 : Remove index offset (-1)
-                   //[state->handCount[*currentPlayer]]; // top card of hand is most recently drawn card.
+                   [state->handCount[*currentPlayer]]; // top card of hand is most recently drawn card.
     if (*cardDrawn == copper || *cardDrawn == silver || *cardDrawn == gold)
       drawntreasure++;
     else {
@@ -62,7 +62,6 @@ int cardEffect_CouncilRoom(int *currentPlayer, struct gameState *state,
   //+1 Buy
   //state->numBuys++;
   // Error 3 : Do not increase number of buys
-  state->numBuys++;
 
   // Each other player draws a card
   for (i = 0; i < state->numPlayers; i++) {
@@ -80,9 +79,10 @@ int cardEffect_CouncilRoom(int *currentPlayer, struct gameState *state,
 int cardEffect_Feast(int *currentPlayer, struct gameState *state, int *handPos,
                      int *temphand, int *choice1, int *x) {
   int i;
+  int cardOffset = 0;
   // gain card with cost up to 5
   // Backup hand
-  for (i = 0; i <= state->handCount[*currentPlayer]; i++) {
+  for (i = 0; i < state->handCount[*currentPlayer]; i++) {
     temphand[i] = state->hand[*currentPlayer][i]; // Backup card
     state->hand[*currentPlayer][i] = -1;          // Set to nothing
   }
@@ -99,9 +99,10 @@ int cardEffect_Feast(int *currentPlayer, struct gameState *state, int *handPos,
       if (DEBUG) {
         printf("Cards Left: %d\n", supplyCount(*choice1, state));
       }
+      *x=0;
     } else if (state->coins < getCost(*choice1)) {
       printf("That card is too expensive!\n");
-
+      *x=0;
       if (DEBUG) {
         printf("Coins: %d < %d\n", state->coins, getCost(*choice1));
       }
@@ -114,8 +115,11 @@ int cardEffect_Feast(int *currentPlayer, struct gameState *state, int *handPos,
                    state->discardCount[*currentPlayer]);
       }
 
-      gainCard(*choice1, state, 0, *currentPlayer); // Gain the card
+      //gainCard(*choice1, state, 0, *currentPlayer); // Gain the card
+      gainCard(*choice1, state, 2, *currentPlayer); // Gain the card
       *x = 0;                                       // No more buying cards
+      // This is required to prevent overwriting the new card...
+      //cardOffset = 1;
 
       if (DEBUG) {
         printf("Deck Count: %d\n",
@@ -127,7 +131,8 @@ int cardEffect_Feast(int *currentPlayer, struct gameState *state, int *handPos,
   }
 
   // Reset Hand
-  for (i = 0; i <= state->handCount[*currentPlayer]; i++) {
+  for (i = 0; i < state->handCount[*currentPlayer] - cardOffset; i++) {
+  //for (i = 0; i <= state->handCount[*currentPlayer]; i++) {
     state->hand[*currentPlayer][i] = temphand[i];
     // Error 4 : Don't reset hand.
     //temphand[i] = -1;

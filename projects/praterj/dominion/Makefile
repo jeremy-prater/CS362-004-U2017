@@ -39,6 +39,8 @@ unittests.out: unittest.o
 	./unittest/unittest &> unittestresult.out
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
+	gcov cardEffects.c >> unittestresult.out
+	cat cardEffects.c.gcov >> unittestresult.out
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o cardEffects.o $(CFLAGS)

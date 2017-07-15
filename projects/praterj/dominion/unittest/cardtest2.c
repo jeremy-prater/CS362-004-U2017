@@ -58,22 +58,26 @@ void test_cardAdventurer()
     addHand(&testState, adventurer);
 
     addDeck(&testState, great_hall);
-    addDeck(&testState, copper);
+    addDeck(&testState, silver);
     addDeck(&testState, baron);
     addDeck(&testState, curse);
-    addDeck(&testState, copper);
+    addDeck(&testState, gold);
 
-    int handPos = 3;
+    // These should be internal to the cardEffect_Adventurer function
+    int drawnTreasure = 0;
+    int z = 0;
+    int cardDrawn = 0;
+    int tempHand[MAX_HAND];
 
-    cardEffect_Adventurer();
+    cardEffect_Adventurer(&drawnTreasure, &testState, &testPlayer, &cardDrawn, tempHand, &z);
 
-    testPassed |= AssertEq (6, testState.handCount[testPlayer], "Test 1 : Handcount == 6");
+    testPassed |= AssertEq (5, testState.handCount[testPlayer], "Test 1 : handCount == 5");
     testPassed |= AssertEq (copper, testState.hand[testPlayer][0], "Test 1 : hand[0] == copper");
     testPassed |= AssertEq (silver, testState.hand[testPlayer][1], "Test 1 : hand[1] == silver");
     testPassed |= AssertEq (gold, testState.hand[testPlayer][2], "Test 1 : hand[2] == gold");
-    testPassed |= AssertEq (great_hall, testState.hand[testPlayer][3], "Test 1 : hand[3] == great_hall");
-    testPassed |= AssertEq (baron, testState.hand[testPlayer][5], "Test 1 : hand[5] == baron");
-    testPassed |= AssertEq (curse, testState.hand[testPlayer][4], "Test 1 : hand[4] == curse");
+    testPassed |= AssertEq (adventurer, testState.hand[testPlayer][3], "Test 1 : hand[3] == adventurer");
+    testPassed |= AssertEq (silver, testState.hand[testPlayer][5], "Test 1 : hand[5] == silver");
+    testPassed |= AssertEq (gold, testState.hand[testPlayer][4], "Test 1 : hand[4] == gold");
 
-    AssertEq (0, testPassed, "Unit Test: cardEffect_Smithy\n");
+    AssertEq (0, testPassed, "Unit Test: cardEftest_cardAdventurerfect_Smithy\n");
 }

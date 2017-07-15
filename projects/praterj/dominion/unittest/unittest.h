@@ -24,6 +24,8 @@ void test_gainCard();
 
 void test_cardSmithy();
 void test_cardAdventurer();
+void test_cardCouncilRoom();
+void test_cardFeast();
 
 int AssertEq (int a, int b, const char * tag);
 void LogStart(const char * tag);
