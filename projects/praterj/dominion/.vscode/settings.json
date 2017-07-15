@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "dominion.h": "c",
+        "unittest.h": "c",
+        "locale_facets.h": "c",
+        "ctype_inline.h": "c",
+        "qhash.h": "c",
+        "uniform_int_dist.h": "c",
+        "qbytearray.h": "c",
+        "qstringbuilder.h": "c",
+        "qvarlengtharray.h": "c",
+        "qcompilerdetection.h": "c",
+        "postypes.h": "c"
+    }
+}

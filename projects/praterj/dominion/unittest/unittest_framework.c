@@ -8,6 +8,8 @@ int main()
     test_discardCard();
     test_updateCoins();
     test_gainCard();
+
+    test_cardSmithy();
 }
 
 int AssertEq (int a, int b, const char * tag)
