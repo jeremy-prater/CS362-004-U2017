@@ -13,6 +13,8 @@ int main()
     test_cardAdventurer();
     test_cardCouncilRoom();
     test_cardFeast();
+
+    return 0;
 }
 
 int AssertEq (int a, int b, const char * tag)

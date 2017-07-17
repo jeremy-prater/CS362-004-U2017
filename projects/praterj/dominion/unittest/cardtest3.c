@@ -55,7 +55,8 @@ void test_cardCouncilRoom()
     addHand(&testState, adventurer);
     addHand(&testState, council_room);
 
-    for (int cardIndex = 0; cardIndex < 4; cardIndex++)
+    int cardIndex;
+    for (cardIndex = 0; cardIndex < 4; cardIndex++)
     {
         addDeck(&testState, cardIndex, testPlayer);
         addDeck(&testState, cardIndex, testPlayer + 1);
