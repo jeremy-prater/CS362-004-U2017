@@ -24,8 +24,8 @@ char *inputString()
 {
     for (int index = 0; index < BUFFER_LENGTH - 1; index++)
     {
-      // Return an ASCII set between 0x61 'a' and 0x7A 'z'
-      buffer[index] = getAlphaChar('a', 'z');
+      // Return an ASCII set between 0x65 'e' and 0x74 't'
+      buffer[index] = getAlphaChar('e', 't');
     }
 
     buffer[BUFFER_LENGTH - 1] = 0x00;
@@ -43,7 +43,7 @@ void testme()
     tcCount++;
     c = inputChar();
     s = inputString();
-    //printf("Iteration %d: c = %c, s = %s, state = %d\n", tcCount, c, s, state);
+    printf("Iteration %d: c = %c, s = %s, state = %d\n", tcCount, c, s, state);
 
     if (c == '[' && state == 0) state = 1;
     if (c == '(' && state == 1) state = 2;
@@ -59,7 +59,6 @@ void testme()
        && s[4] == 't' && s[5] == '\0'
        && state == 9)
     {
-      printf("Iteration %d: c = %c, s = %s, state = %d\n", tcCount, c, s, state);
       printf("error ");
       exit(200);
     }
