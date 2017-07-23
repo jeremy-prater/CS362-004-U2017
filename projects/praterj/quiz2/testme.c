@@ -22,7 +22,8 @@ char inputChar()
 
 char *inputString()
 {
-    for (int index = 0; index < BUFFER_LENGTH - 1; index++)
+    int index = 0;
+    for (index = 0; index < BUFFER_LENGTH - 1; index++)
     {
       // Return an ASCII set between 0x65 'e' and 0x74 't'
       buffer[index] = getAlphaChar('e', 't');
