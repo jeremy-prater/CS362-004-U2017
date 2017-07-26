@@ -42,6 +42,16 @@ unittests.out: unittest.o
 	gcov cardEffects.c >> unittestresult.out
 	cat cardEffects.c.gcov >> unittestresult.out
 
+randomtest.o: dominion.o rngs.o cardEffects.o randomtest/randomtest_framework.c randomtest/randomtestadventurer.c
+	gcc -g $(CFLAGS) -o randomtest/randomtest dominion.o rngs.o cardEffects.o randomtest/randomtest_framework.c randomtest/randomtestadventurer.c
+
+randomtests.out: randomtest.o
+	./randomtest/randomtest &> randomtestresult.out
+	gcov dominion.c >> randomtestresult.out
+	cat dominion.c.gcov >> randomtestresult.out
+	gcov cardEffects.c >> randomtestresult.out
+	cat cardEffects.c.gcov >> randomtestresult.out
+
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o cardEffects.o $(CFLAGS)
 
