@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////
 //
-// Random Card Test 2 - Dominion - cardEffect_Adventurer
+// Random Card Test 2 - Dominion - cardEffect_Smithy
 //
-// Random test function : int cardEffect_Adventurer(int *drawntreasure, struct gameState *state, int *currentPlayer, int *cardDrawn, int *temphand, int *z)
+// Random test function : int cardEffect_Smithy(int *currentPlayer, struct gameState *state, int *handPos)
 //
 // int * currentPlayer - Player ID
 // struct gameState * state - Pointer to game state
@@ -29,13 +29,6 @@ static void addHand(struct gameState * testState, int card)
     int handPos = testState->handCount[testPlayer];
     testState->hand[testPlayer][handPos] = card;
     testState->handCount[testPlayer]++;
-}
-
-static void addDeck(struct gameState * testState, int card, int playerID)
-{
-    int deckPos = testState->deckCount[playerID];
-    testState->deck[playerID][deckPos] = card;
-    testState->deckCount[playerID]++;
 }
 
 static void addDiscard(struct gameState * testState, int card)
@@ -67,7 +60,7 @@ void randomTest_cardSmithy()
     for (testCounter = 0; testCounter < 100; testCounter++)
     {
         clearState (&testState);
-        int cardsToAddHand = rand() % 6;
+        int cardsToAddHand = (rand() % 6);
         int cardsToAddDiscard = 3 + (rand() % 3);
 
         int handCard, discardCard;
