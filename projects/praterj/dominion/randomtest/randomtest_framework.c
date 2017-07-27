@@ -1,10 +1,21 @@
 #include "randomtest.h"
 
-int main()
+int main(int argc, char * argv[])
 {
+    if (argc != 2)
+    {
+        printf ("Please specify a card test to run (0, 1, 2)...\n\n");
+        return -1;
+    }
     printf ("Starting Dominion Random Tests...\n\n");
 
-    randomTest_cardAdventurer();
+    int cardTest = atoi (argv[1]);
+
+    switch (cardTest)
+    {
+        case 1: randomTest_cardAdventurer(); break;
+        case 2: randomTest_cardSmithy(); break;
+    }
     
     return 0;
 }

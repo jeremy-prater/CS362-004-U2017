@@ -14,9 +14,9 @@ int cardEffect_Adventurer(int *drawntreasure, struct gameState *state,
     drawCard(*currentPlayer, state);
     *cardDrawn =
         state->hand[*currentPlayer]
-                   //[state->handCount[*currentPlayer] - 1]; // top card of hand is most recently drawn card.
+                   [state->handCount[*currentPlayer] - 1]; // top card of hand is most recently drawn card.
                    // Error 1 : Remove index offset (-1)
-                   [state->handCount[*currentPlayer]]; // top card of hand is most recently drawn card.
+                   //[state->handCount[*currentPlayer]]; // top card of hand is most recently drawn card.
     if (*cardDrawn == copper || *cardDrawn == silver || *cardDrawn == gold)
       drawntreasure++;
     else {
@@ -39,9 +39,9 @@ int cardEffect_Smithy(int *currentPlayer, struct gameState *state,
                       int *handPos) {
   int i;
   //+3 Cards
-  //for (i = 0; i < 3; i++) {
+  for (i = 0; i < 3; i++) {
   // Error 2: Only draw two cards
-  for (i = 0; i < 2; i++) {
+  //for (i = 0; i < 2; i++) {
     drawCard(*currentPlayer, state);
   }
 

@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////
 //
-// Random Card Test 2 - Dominion - cardEffect_Adventurer
+// Random Card Test - Dominion - cardEffect_Adventurer
 //
 // Random test function : int cardEffect_Adventurer(int *drawntreasure, struct gameState *state, int *currentPlayer, int *cardDrawn, int *temphand, int *z)
 //
@@ -22,13 +22,6 @@ static int testPlayer = 0;
 static void clearState(struct gameState * testState)
 {
     memset (testState, 0, sizeof (struct gameState));
-}
-
-static void addHand(struct gameState * testState, int card)
-{
-    int handPos = testState->handCount[testPlayer];
-    testState->hand[testPlayer][handPos] = card;
-    testState->handCount[testPlayer]++;
 }
 
 static void addDeck(struct gameState * testState, int card, int playerID)

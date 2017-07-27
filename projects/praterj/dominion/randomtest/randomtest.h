@@ -18,6 +18,7 @@
 #define FAILED "FAILED"
 
 void randomTest_cardAdventurer();
+void randomTest_cardSmithy();
 
 int AssertEq (int a, int b, const char * tag);
 void LogStart(const char * tag);
