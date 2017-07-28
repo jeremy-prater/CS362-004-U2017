@@ -54,7 +54,7 @@ void randomTest_cardSmithy()
 
     /////////////////////////////
     //
-    // Random test 1 : Add to deck
+    // Random test 2 : Smithy
     //
     int testCounter = 0;
     for (testCounter = 0; testCounter < 100; testCounter++)

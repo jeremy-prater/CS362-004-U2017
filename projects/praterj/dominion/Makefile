@@ -58,6 +58,12 @@ randomtests.out: randomtest.o
 	gcov cardEffects.c >> randomtestcard1.out
 	cat cardEffects.c.gcov >> randomtestcard1.out
 
+	./randomtest/randomtest 3 &> randomtestcard2.out
+	gcov dominion.c >> randomtestcard2.out
+	cat dominion.c.gcov >> randomtestcard2.out
+	gcov cardEffects.c >> randomtestcard2.out
+	cat cardEffects.c.gcov >> randomtestcard2.out
+
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o cardEffects.o $(CFLAGS)
 

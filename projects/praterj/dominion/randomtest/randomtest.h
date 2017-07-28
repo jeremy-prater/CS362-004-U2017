@@ -19,6 +19,7 @@
 
 void randomTest_cardAdventurer();
 void randomTest_cardSmithy();
+void randomTest_cardMine();
 
 int AssertEq (int a, int b, const char * tag);
 void LogStart(const char * tag);
