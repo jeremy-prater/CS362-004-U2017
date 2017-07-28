@@ -1,0 +1,12 @@
+#!/bin/sh
+
+rm -f ./test/urlValidator.log
+rm -f ./UrlValidatorTest.java
+rm -f ./UrlValidatorTest.jar
+
+pushd test
+
+javac ./UrlValidatorTest.java -cp "./../bin:/usr/share/java/junit.jar"
+java -cp "./../bin:/usr/share/java/junit.jar" UrlValidatorTest > urlValidator.log
+
+popd
