@@ -103,37 +103,29 @@ runAllTests:
 	gcov dominion.c -b >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 
-unittest.o: dominion.o rngs.o cardEffects.o unittest/unittest1.c unittest/unittest2.c unittest/unittest3.c unittest/unittest4.c unittest/unittest_framework.c unittest/cardtest1.c unittest/cardtest2.c unittest/cardtest3.c unittest/cardtest4.c
-	gcc -o unittest/unittest dominion.o rngs.o cardEffects.o unittest/unittest1.c unittest/unittest2.c unittest/unittest3.c unittest/unittest4.c unittest/unittest_framework.c unittest/cardtest1.c unittest/cardtest2.c unittest/cardtest3.c unittest/cardtest4.c -g $(CFLAGS)
+unittest.o: dominion.o rngs.o unittest/unittest1.c unittest/unittest2.c unittest/unittest3.c unittest/unittest4.c unittest/unittest_framework.c unittest/cardtest1.c unittest/cardtest2.c unittest/cardtest3.c unittest/cardtest4.c
+	gcc -o unittest/unittest dominion.o rngs.o unittest/unittest1.c unittest/unittest2.c unittest/unittest3.c unittest/unittest4.c unittest/unittest_framework.c unittest/cardtest1.c unittest/cardtest2.c unittest/cardtest3.c unittest/cardtest4.c -g $(CFLAGS)
 
 unittests.out: unittest.o
 	./unittest/unittest &> unittestresult.out
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
-	gcov cardEffects.c >> unittestresult.out
-	cat cardEffects.c.gcov >> unittestresult.out
 
-randomtest.o: dominion.o rngs.o cardEffects.o randomtest/randomtest_framework.c randomtest/randomtestadventurer.c randomtest/randomtestcard1.c randomtest/randomtestcard2.c
-	gcc -g $(CFLAGS) -o randomtest/randomtest dominion.o rngs.o cardEffects.o randomtest/randomtest_framework.c randomtest/randomtestadventurer.c randomtest/randomtestcard1.c randomtest/randomtestcard2.c
+randomtest.o: dominion.o rngs.o randomtest/randomtest_framework.c randomtest/randomtestadventurer.c randomtest/randomtestcard1.c randomtest/randomtestcard2.c
+	gcc -g $(CFLAGS) -o randomtest/randomtest dominion.o rngs.o randomtest/randomtest_framework.c randomtest/randomtestadventurer.c randomtest/randomtestcard1.c randomtest/randomtestcard2.c
 
 randomtests.out: randomtest.o
 	./randomtest/randomtest 1 &> randomtestadventurer.out
 	gcov dominion.c >> randomtestadventurer.out
 	cat dominion.c.gcov >> randomtestadventurer.out
-	gcov cardEffects.c >> randomtestadventurer.out
-	cat cardEffects.c.gcov >> randomtestadventurer.out
 
 	./randomtest/randomtest 2 &> randomtestcard1.out
 	gcov dominion.c >> randomtestcard1.out
 	cat dominion.c.gcov >> randomtestcard1.out
-	gcov cardEffects.c >> randomtestcard1.out
-	cat cardEffects.c.gcov >> randomtestcard1.out
 
 	./randomtest/randomtest 3 &> randomtestcard2.out
 	gcov dominion.c >> randomtestcard2.out
 	cat dominion.c.gcov >> randomtestcard2.out
-	gcov cardEffects.c >> randomtestcard2.out
-	cat cardEffects.c.gcov >> randomtestcard2.out
 
 
 clean:
