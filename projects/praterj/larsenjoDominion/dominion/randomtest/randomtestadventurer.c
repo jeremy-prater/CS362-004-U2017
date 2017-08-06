@@ -11,7 +11,6 @@
 
 #include "../dominion.h"
 #include "../dominion_helpers.h"
-#include "../cardEffects.h"
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
@@ -75,7 +74,7 @@ void randomTest_cardAdventurer()
     int cardDrawn = 0;
     int tempHand[MAX_HAND];
 
-    cardEffect_Adventurer(&drawnTreasure, &testState, &testPlayer, &cardDrawn, tempHand, &z);
+    advent(drawnTreasure, &testState, testPlayer, tempHand, cardDrawn, z);
 
     treasureCards = 0;
     testPassed |= AssertEq (2, testState.handCount[testPlayer], "Random Test : 2 cards in hand -- buffer underrun probably occured!");
@@ -112,7 +111,7 @@ void randomTest_cardAdventurer()
     z = 0;
     cardDrawn = 0;
 
-    cardEffect_Adventurer(&drawnTreasure, &testState, &testPlayer, &cardDrawn, tempHand, &z);
+    advent(drawnTreasure, &testState, testPlayer, tempHand, cardDrawn, z);
 
     treasureCards = 0;
     testPassed |= AssertEq (2, testState.handCount[testPlayer], "Random Test : 2 cards in hand -- buffer underrun probably occured!");

@@ -67,7 +67,7 @@ void test_cardCouncilRoom()
 
     int oldBuys = testState.numBuys;
 
-    cardEffect_CouncilRoom(&testPlayer, &testState, &handPos);
+    //cardEffect_CouncilRoom(&testPlayer, &testState, &handPos);
 
     testPassed |= AssertEq (oldBuys + 1, testState.numBuys, "Test 1 : numBuys++");
     testPassed |= AssertEq (5, testState.handCount[testPlayer], "Test 1 : handCount == 5");

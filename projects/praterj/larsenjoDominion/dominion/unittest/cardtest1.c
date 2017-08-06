@@ -62,7 +62,7 @@ void test_cardSmithy()
 
     int handPos = 3;
 
-    cardEffect_Smithy(&testPlayer, &testState, &handPos);
+    smith(testPlayer, &testState, handPos);
 
     testPassed |= AssertEq (6, testState.handCount[testPlayer], "Test 1 : Handcount == 6");
     testPassed |= AssertEq (copper, testState.hand[testPlayer][0], "Test 1 : hand[0] == copper");

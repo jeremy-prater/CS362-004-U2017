@@ -68,7 +68,7 @@ void test_cardAdventurer()
     int cardDrawn = 0;
     int tempHand[MAX_HAND];
 
-    cardEffect_Adventurer(&drawnTreasure, &testState, &testPlayer, &cardDrawn, tempHand, &z);
+    advent(drawnTreasure, &testState, testPlayer, tempHand, cardDrawn, z);
 
     testPassed |= AssertEq (5, testState.handCount[testPlayer], "Test 1 : handCount == 5");
     testPassed |= AssertEq (copper, testState.hand[testPlayer][0], "Test 1 : hand[0] == copper");
@@ -78,5 +78,5 @@ void test_cardAdventurer()
     testPassed |= AssertEq (silver, testState.hand[testPlayer][5], "Test 1 : hand[5] == silver");
     testPassed |= AssertEq (gold, testState.hand[testPlayer][4], "Test 1 : hand[4] == gold");
 
-    AssertEq (0, testPassed, "Unit Test: cardEftest_cardAdventurerfect_Smithy\n");
+    AssertEq (0, testPassed, "Unit Test: test_cardAdventurer\n");
 }

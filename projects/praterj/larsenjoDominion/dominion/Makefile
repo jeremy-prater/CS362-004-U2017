@@ -120,13 +120,8 @@ randomtests.out: randomtest.o
 	cat dominion.c.gcov >> randomtestadventurer.out
 
 	./randomtest/randomtest 2 &> randomtestcard1.out
-	gcov dominion.c >> randomtestcard1.out
-	cat dominion.c.gcov >> randomtestcard1.out
-
-	./randomtest/randomtest 3 &> randomtestcard2.out
-	gcov dominion.c >> randomtestcard2.out
-	cat dominion.c.gcov >> randomtestcard2.out
-
+	gcov dominion.c >> randomtestcardsmithy.out
+	cat dominion.c.gcov >> randomtestcardsmithy.out
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe badTestDrawCard

@@ -11,7 +11,6 @@
 
 #include "../dominion.h"
 #include "../dominion_helpers.h"
-#include "../cardEffects.h"
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
@@ -77,7 +76,7 @@ void randomTest_cardSmithy()
         addHand (&testState, smithy);
         int handPos = testState.handCount[testPlayer];
         
-        cardEffect_Smithy(&testPlayer, & testState, &handPos);
+        smith(testPlayer, & testState, handPos);
 
         testPassed |= AssertEq (testState.handCount[testPlayer], cardsToAddHand + 3, "Random Test 2 : Hand has +3 cards");
     }

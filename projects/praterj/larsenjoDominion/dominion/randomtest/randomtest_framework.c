@@ -15,7 +15,7 @@ int main(int argc, char * argv[])
     {
         case 1: randomTest_cardAdventurer(); break;
         case 2: randomTest_cardSmithy(); break;
-        case 3: randomTest_cardMine(); break;
+        //case 3: randomTest_cardMine(); break;
     }
     
     return 0;

@@ -15,7 +15,6 @@
 
 #include "../dominion.h"
 #include "../dominion_helpers.h"
-#include "../cardEffects.h"
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
@@ -95,7 +94,7 @@ void randomTest_cardMine()
         addHand (&testState, feast);
         int handCount = choice1;
 
-        cardEffect_Mine(&testPlayer, & testState, &handPos, &choice1, &choice2);
+        //cardEffect_Mine(&testPlayer, & testState, &handPos, &choice1, &choice2);
         int localTestPassed = 0;
         localTestPassed |= AssertEq (testState.handCount[testPlayer], handCount + 1, "Random Test 3 : Mine swapped card");
         localTestPassed |= AssertEq (testState.playedCardCount, 2, "Random Test 3 : Two discards");

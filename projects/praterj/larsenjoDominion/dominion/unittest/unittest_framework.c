@@ -11,8 +11,8 @@ int main()
 
     test_cardSmithy();
     test_cardAdventurer();
-    test_cardCouncilRoom();
-    test_cardFeast();
+    //test_cardCouncilRoom();
+    //test_cardFeast();
 
     return 0;
 }
