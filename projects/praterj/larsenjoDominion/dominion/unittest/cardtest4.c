@@ -11,7 +11,6 @@
 
 #include "../dominion.h"
 #include "../dominion_helpers.h"
-#include "../cardEffects.h"
 #include "unittest.h"
 
 static int testPlayer = 0;
