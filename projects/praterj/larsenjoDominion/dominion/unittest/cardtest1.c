@@ -58,6 +58,7 @@ void test_cardSmithy()
 
     addDeck(&testState, great_hall);
     addDeck(&testState, baron);
+    addDeck(&testState, treasure_map);
     addDeck(&testState, curse);
 
     int handPos = 3;
@@ -69,7 +70,7 @@ void test_cardSmithy()
     testPassed |= AssertEq (silver, testState.hand[testPlayer][1], "Test 1 : hand[1] == silver");
     testPassed |= AssertEq (gold, testState.hand[testPlayer][2], "Test 1 : hand[2] == gold");
     testPassed |= AssertEq (great_hall, testState.hand[testPlayer][3], "Test 1 : hand[3] == great_hall");
-    testPassed |= AssertEq (baron, testState.hand[testPlayer][5], "Test 1 : hand[5] == baron");
+    testPassed |= AssertEq (treasure_map, testState.hand[testPlayer][5], "Test 1 : hand[5] == treasure_map");
     testPassed |= AssertEq (curse, testState.hand[testPlayer][4], "Test 1 : hand[4] == curse");
 
     AssertEq (0, testPassed, "Unit Test: cardEffect_Smithy\n");
