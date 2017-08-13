@@ -10,5 +10,5 @@ javac ./src/UrlValidator.java -cp "./src;./bin/junit.jar" -d ./bin
 
 javac ./test/UrlValidatorTest.java -cp "./src;./bin/junit.jar" -d ./bin
 
-java -cp "./bin;./bin/junit.jar" UrlValidatorTest > urlValidator.log
+java -cp "./bin;./bin/junit.jar" UrlValidatorTest
 
