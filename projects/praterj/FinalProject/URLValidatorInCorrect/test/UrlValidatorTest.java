@@ -1,11 +1,46 @@
 import junit.framework.TestCase;
 
 public class UrlValidatorTest extends TestCase {
+   static ResultPair[] testURLs = {
+        ///////////////////////////////////////////////////////
+        //
+        // Testing Partition - Invalid SCHEMA
+        //
+        new ResultPair("http://", false),
+        new ResultPair("ftp://!@#", false),
+        new ResultPair("http://!@#", false),
+        new ResultPair("ftp://!@#", false),
+        new ResultPair("ftp://!@#", false),
+        new ResultPair("http://.abc@", false),
+        new ResultPair("http://.abc@", false),
+        new ResultPair("http://!@#", false),
+        new ResultPair("ftp://!@#", false),
+        new ResultPair("http://.abc@", false),
+        new ResultPair("http://!@#", false),
 
-    private boolean printStatus = false;
-    private boolean printIndex = false;//print index that indicates current scheme,host,port,path, query test were using.
+        ///////////////////////////////////////////////////////
+        //
+        // Testing Partition - IP Addresses
+        //
 
-    private static boolean checkUrl(UrlValidator urlVal, ResultPair testURL) {
+        new ResultPair("http://123.123.123", false),
+        new ResultPair("http://123.123.123.123", true),
+        new ResultPair("http://123.123.123.123.123", false),
+        new ResultPair("http://123.123.123.123:123", true),
+        new ResultPair("http://123.123.123.123:1234", true),
+
+
+        ///////////////////////////////////////////////////////
+        //
+        // Testing Partition - Domain Names
+        //
+
+        new ResultPair("http://google", false),
+        new ResultPair("http://www.google.com", true),
+        new ResultPair("http://www.google.com:808", true),
+        new ResultPair("http://www.google.com:8080", true),
+   };
+   private static boolean checkUrl(UrlValidator urlVal, ResultPair testURL) {
         boolean result = urlVal.isValid(testURL.item);
         if (result == testURL.valid) {
             System.out.print("[PASS] - ");
@@ -17,16 +52,6 @@ public class UrlValidatorTest extends TestCase {
         //assertEq(result, expectedResult);
         return result;
     }
-
-   static ResultPair[] testURLs = {
-        new ResultPair("http://", false),
-        new ResultPair("http://123.123.123", false),
-        new ResultPair("http://123.123.123.123", true),
-        new ResultPair("http://123.123.123.123.123", false),
-        new ResultPair("http://www.google.com", true),
-        new ResultPair("http://www.google.com:808", true),
-        new ResultPair("http://www.google.com:8080", true),
-   };
 
     /**
     * Only used to debug the unit tests.
