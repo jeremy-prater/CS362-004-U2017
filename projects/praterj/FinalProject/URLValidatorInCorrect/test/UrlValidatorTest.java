@@ -39,6 +39,24 @@ public class UrlValidatorTest extends TestCase {
         new ResultPair("http://www.google.com", true),
         new ResultPair("http://www.google.com:808", true),
         new ResultPair("http://www.google.com:8080", true),
+
+        ///////////////////////////////////////////////////////
+        //
+        // Testing Partition - URL Query
+        //
+
+        new ResultPair("http://www.google.com:80/test1", true),
+        new ResultPair("http://www.google.com:80/test1?action", true),
+        new ResultPair("http://www.google.com:80/test1?action=view", true),
+        new ResultPair("http://www.google.com:80/test1?action=view&mode=up", true),
+
+        ///////////////////////////////////////////////////////
+        //
+        // Testing Partition - Local URL testing
+        //
+
+        new ResultPair("http://freenas", true),
+        new ResultPair("http://octprint/main", true),
    };
    private static boolean checkUrl(UrlValidator urlVal, ResultPair testURL) {
         boolean result = urlVal.isValid(testURL.item);
@@ -62,7 +80,7 @@ public class UrlValidatorTest extends TestCase {
         System.out.println("Java URL tester V1.0 - Jeremy Prater");
         System.out.println("======================================================");
         System.out.println();
-        UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
+        UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES | UrlValidator.ALLOW_LOCAL_URLS);
         for (ResultPair testURL : testURLs)
         {
             checkUrl(urlVal, testURL);
