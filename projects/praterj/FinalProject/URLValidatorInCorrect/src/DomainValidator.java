@@ -262,7 +262,7 @@ public class DomainValidator implements Serializable {
         "at",                 // Austria
         "au",                 // Australia (includes Ashmore and Cartier Islands and Coral Sea Islands)
         "aw",                 // Aruba
-        "ax",                 // Åland
+        "ax",                 // Aland
         "az",                 // Azerbaijan
         "ba",                 // Bosnia and Herzegovina
         "bb",                 // Barbados
@@ -289,7 +289,7 @@ public class DomainValidator implements Serializable {
         "cf",                 // Central African Republic
         "cg",                 // Republic of the Congo
         "ch",                 // Switzerland
-        "ci",                 // Côte d'Ivoire
+        "ci",                 // Cote d'Ivoire
         "ck",                 // Cook Islands
         "cl",                 // Chile
         "cm",                 // Cameroon
@@ -346,7 +346,7 @@ public class DomainValidator implements Serializable {
         "ht",                 // Haiti
         "hu",                 // Hungary
         "id",                 // Indonesia
-        "ie",                 // Ireland (Éire)
+        "ie",                 // Ireland (Eire)
         "il",                 // Israel
         "im",                 // Isle of Man
         "in",                 // India
