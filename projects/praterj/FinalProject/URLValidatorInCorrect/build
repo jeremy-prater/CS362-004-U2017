@@ -2,13 +2,13 @@
 
 rm -f ./bin/*.class
 
-javac ./src/DomainValidator.java -cp "./src;./bin/junit.jar" -d ./bin
-javac ./src/InetAddressValidator.java -cp "./src;./bin/junit.jar" -d ./bin
-javac ./src/RegexValidator.java -cp "./src;./bin/junit.jar" -d ./bin
-javac ./src/ResultPair.java -cp "./src;./bin/junit.jar" -d ./bin
-javac ./src/UrlValidator.java -cp "./src;./bin/junit.jar" -d ./bin
+javac ./src/DomainValidator.java -cp "./src:./bin/junit.jar" -d ./bin
+javac ./src/InetAddressValidator.java -cp "./src:./bin/junit.jar" -d ./bin
+javac ./src/RegexValidator.java -cp "./src:./bin/junit.jar" -d ./bin
+javac ./src/ResultPair.java -cp "./src:./bin/junit.jar" -d ./bin
+javac ./src/UrlValidator.java -cp "./src:./bin/junit.jar" -d ./bin
 
-javac ./test/UrlValidatorTest.java -cp "./src;./bin/junit.jar" -d ./bin
+javac ./test/UrlValidatorTest.java -cp "./src:./bin/junit.jar" -d ./bin
 
-java -cp "./bin;./bin/junit.jar" UrlValidatorTest
+java -cp "./bin:./bin/junit.jar" UrlValidatorTest
 
