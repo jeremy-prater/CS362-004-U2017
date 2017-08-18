@@ -67,7 +67,7 @@ public class UrlValidatorTest extends TestCase {
             case 2:
                 scheme = rand.nextInt(validScheme.length);
                 auth = rand.nextInt(validAuthority.length);
-                port = 65535 + rand.nextInt(10000);
+                port = 65536 + rand.nextInt(10000);
                 url = validScheme[scheme] + validAuthority[auth] + ":" + port;
                 break;
         }
